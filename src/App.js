@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Rune from './components/Rune';
 import './App.css';
-import { type } from '@testing-library/user-event/dist/type';
+//import { type } from '@testing-library/user-event/dist/type';
 
 const majorRunes = [
   { label: '', type: 999, blood: [] },
