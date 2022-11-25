@@ -54,6 +54,19 @@ const minorRunes = [
   { label: 'Catena' },
 ];
 
+const minorCosts = {
+  'Resistenza': {
+    item: 'Tavola della Durabilità',
+    gold: 50000,
+    detail: 'si compra da npc mago'
+  },
+  'Catena': {
+    item: 'Catena per arma',
+    gold: 0,
+    detail: ''
+  }
+}
+
 function App() {
   const [runes, setRunes] = useState([]);
   const [minors, setMinors] = useState([]);
@@ -134,10 +147,16 @@ function App() {
 
   const minorMaterialCost = (rune) => {
     if( rune.name === '') return {};
-    let costs = { 'gold': 0 };
-    for( let i = rune.from; i < rune.level; i++ )
-      costs['gold'] += (i+1) * 50000;
-    return costs;
+    let costs = { 'gold': 0, 'nitems': 0 };
+    
+    for( let i = rune.from; i < rune.level; i++ ) {
+      costs['nitems'] += (i+1);
+      costs['gold'] += (i+1) * minorCosts[rune.name].gold;
+    }
+    //costs['nitems'] = costs['nitems'] + ' ' + minorCosts[rune.name].item;
+    let ret = {};
+    ret[minorCosts[rune.name].item] = costs['nitems'];
+    return ret;
   }
 
   const updateRune = (rune, newName) => {
