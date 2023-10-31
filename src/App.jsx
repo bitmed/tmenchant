@@ -27,7 +27,7 @@ const majorRunes = [
   { label: 'Vibrante', type: 2, blood: ['titanico'] },
 ];
 
-const levelMultipliers = [
+/*const levelMultipliers = [
   { crystal: 'polveri', quantity: 5, core: 0, superiorCore: 0 },
   { crystal: 'frammenti', quantity: 3, core: 0, superiorCore: 0 },
   { crystal: 'frammenti', quantity: 5, core: 0, superiorCore: 0 },
@@ -40,6 +40,16 @@ const pureMultipliers = [
   { crystal: 'frammenti', quantity: 7, core: 0, superiorCore: 0 },
   { crystal: 'cristalli', quantity: 3, core: 1, superiorCore: 0 },
   { crystal: 'cristalli', quantity: 5, core: 0, superiorCore: 1 },
+];*/
+const levelMultipliers = [
+  { crystal: 'polveri', quantity: 5, core: 0, superiorCore: 0 },
+  { crystal: 'frammenti', quantity: 3, core: 0, superiorCore: 0 },
+  { crystal: 'cristalli', quantity: 2, core: 0, superiorCore: 0 },
+];
+const pureMultipliers = [
+  { crystal: 'polveri', quantity: 7, core: 0, superiorCore: 0 },
+  { crystal: 'frammenti', quantity: 4, core: 0, superiorCore: 0 },
+  { crystal: 'cristalli', quantity: 3, core: 0, superiorCore: 0 },
 ];
 
 const bloodMultipliers = {
@@ -167,7 +177,7 @@ function App() {
     let to = rune.level;
     value = parseInt(value);
     if( value >= to) to = value+1;
-    if(to > 5) to = 5;
+    if(to > 3) to = 3;
     updateRuneLevel(rune, value, to);
   }
 
@@ -290,7 +300,7 @@ function App() {
         <div className='major-runes'>
           <h2>Rune maggiori</h2>
           {runesRendered}
-          {runes.length < 6 && availableLevels > 0 && <div className='add-rune-container'><a className='add-rune' onClick={addRune}>Aggiungi runa maggiore</a></div>}
+          {runes.length < 4 && availableLevels > 0 && <div className='add-rune-container'><a className='add-rune' onClick={addRune}>Aggiungi runa maggiore</a></div>}
         </div>
         <div className='minor-runes'>
           <h2>Rune minori</h2>

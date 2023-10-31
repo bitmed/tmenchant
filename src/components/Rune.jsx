@@ -5,8 +5,8 @@ function Rune(props) {
 
   let optionLevels = [];
   let optionLevelsFrom = [];
-  for( let i = 1; i <= 5 && i <= props.rune.level + props.availableLevels; i++ ) {
-    if( i < 5  && i < props.rune.level + props.availableLevels ) optionLevelsFrom.push(<option>{i}</option>);
+  for( let i = 1; i <= 3 && i <= props.rune.level + props.availableLevels; i++ ) {
+    if( i < 3  && i < props.rune.level + props.availableLevels ) optionLevelsFrom.push(<option>{i}</option>);
     optionLevels.push(<option>{i}</option>);
   }
 
